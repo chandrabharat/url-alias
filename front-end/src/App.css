@@ -1,0 +1,45 @@
+.App {
+  text-align: center;
+}
+
+#Page-Title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+
+  @media (max-width: 768px) {
+    font-size: 1.5em;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 3em;
+  }
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1 em;
+}
+
+.form-input {
+  padding: 0.5em;
+  border: 1px solid gray;
+  border-radius: 0.25em;
+  font-size: 1em;
+  margin: 1em;
+  width: 100%; /* Set the width to 100% of the parent container */
+  max-width: 400px; /* Set a maximum width if needed */
+}
+
+.form-submit {
+  padding: 0.5em 1em;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 0.25em;
+  font-size: 1em;
+  cursor: pointer;
+}
