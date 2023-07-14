@@ -10,7 +10,7 @@ dotenv.config();
 const connectionString = process.env.MONGODB_CONNECTION_STRING;
 const port = process.env.PORT || 3000;
 
-const startServer = () => {
+const startServer = async () => {
   // Create an instance of Express
   const app = express();
 
@@ -23,7 +23,7 @@ const startServer = () => {
   app.use("/redirect", redirectRoute);
 
   // Connect to the database
-  mongoose.connect(connectionString, {
+  await mongoose.connect(connectionString, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
@@ -46,5 +46,5 @@ export const stopServer = async (server) => {
   }
 };
 
-const { app, server } = startServer();
+const { app, server } = await startServer();
 export { app, server };
