@@ -51,7 +51,7 @@ tap.test("Redirect Route Test", async (t) => {
 });
 
 tap.teardown(async () => {
-  await removeData();
+  // await removeData();
   await stopServer(server);
   process.exit();
 });

@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "tap test/urlRoutes.test.js"
+    "test": "tap test/redirectRoutes.test.js"
   },
   "author": "Bharat Chandra",
   "license": "ISC",

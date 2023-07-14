@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import path from "path";
 import urlRoutes from "./routes/urlRoute.js";
 import redirectRoute from "./routes/redirectRoute.js";
 import dotenv from "dotenv";
@@ -10,7 +11,6 @@ dotenv.config();
 const port = process.env.PORT || 3000;
 
 const startServer = async () => {
-  // Create an instance of Express
   const app = express();
 
   const connectDB = async () => {
@@ -23,11 +23,18 @@ const startServer = async () => {
     }
   };
 
-  // Set up middleware
   app.use(express.json());
   app.use(cors());
 
-  // Routes
+  // Serve static files from the "public" directory
+  app.use(express.static(path.resolve(process.cwd(), "public")));
+
+  // Route for the root URL
+  app.get("/", (req, res) => {
+    // Send the static HTML file as the response
+    res.sendFile(path.resolve(process.cwd(), "public", "index.html"));
+  });
+
   app.use("/urls", urlRoutes);
   app.use("/redirect", redirectRoute);
 
