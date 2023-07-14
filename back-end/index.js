@@ -7,12 +7,21 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const connectionString = process.env.MONGODB_CONNECTION_STRING;
 const port = process.env.PORT || 3000;
 
-const startServer = () => {
+const startServer = async () => {
   // Create an instance of Express
   const app = express();
+
+  const connectDB = async () => {
+    try {
+      const conn = await mongoose.connect(process.env.MONGO_URI);
+      console.log(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (error) {
+      console.log(error);
+      process.exit(1);
+    }
+  };
 
   // Set up middleware
   app.use(express.json());
@@ -22,27 +31,13 @@ const startServer = () => {
   app.use("/urls", urlRoutes);
   app.use("/redirect", redirectRoute);
 
-  // Connect to the database
-  return mongoose
-    .connect(connectionString, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    })
-    .then(() => {
-      // MongoDB connection successful
-      console.log("Connected to MongoDB");
-
-      // Start the server after successful connection
-      const server = app.listen(port, () => {
-        console.log(`Server is running on port ${port}`);
-      });
-
-      return { app, server };
-    })
-    .catch((error) => {
-      console.error("Failed to connect to the database:", error);
-      process.exit(1); // Exit the process if database connection fails
+  return connectDB().then(() => {
+    const server = app.listen(port, () => {
+      console.log(`Server is running on port ${port}`);
     });
+
+    return { app, server };
+  });
 };
 
 export const stopServer = async (server) => {
