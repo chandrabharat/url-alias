@@ -10,7 +10,7 @@ dotenv.config();
 const connectionString = process.env.MONGODB_CONNECTION_STRING;
 const port = process.env.PORT || 3000;
 
-const startServer = async () => {
+const startServer = () => {
   // Create an instance of Express
   const app = express();
 
@@ -23,17 +23,26 @@ const startServer = async () => {
   app.use("/redirect", redirectRoute);
 
   // Connect to the database
-  await mongoose.connect(connectionString, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  return mongoose
+    .connect(connectionString, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    .then(() => {
+      // MongoDB connection successful
+      console.log("Connected to MongoDB");
 
-  // Start the server
-  const server = app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-  });
+      // Start the server after successful connection
+      const server = app.listen(port, () => {
+        console.log(`Server is running on port ${port}`);
+      });
 
-  return { app, server };
+      return { app, server };
+    })
+    .catch((error) => {
+      console.error("Failed to connect to the database:", error);
+      process.exit(1); // Exit the process if database connection fails
+    });
 };
 
 export const stopServer = async (server) => {
