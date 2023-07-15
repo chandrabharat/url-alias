@@ -14,9 +14,11 @@ export const createURL = async (req, res) => {
     const existingURL = await Url.findOne({ longUrl });
 
     if (existingURL) {
-      res
-        .status(200)
-        .json({ longUrl: existingURL.longUrl, shortUrl: existingURL.shortUrl });
+      res.status(200).json({
+        longUrl: existingURL.longUrl,
+        shortUrl: existingURL.shortUrl,
+        createdAt: existingURL.createdAt,
+      });
     } else {
       const counterVal = await getCounter();
 
@@ -30,10 +32,13 @@ export const createURL = async (req, res) => {
       });
 
       newUrl.save();
-
       await incrementCounter();
 
-      res.status(200).json(newUrl);
+      res.status(200).json({
+        longUrl: newUrl.longUrl,
+        shortUrl: newUrl.shortUrl,
+        createdAt: newUrl.createdAt,
+      });
     }
   } catch (error) {
     res.status(500).json({ error: "Could not create URL" });

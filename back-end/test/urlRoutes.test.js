@@ -15,16 +15,17 @@ tap.test("Create URL Tests", async (t) => {
     t.equal(response.status, 200);
     t.ok(response.body.shortUrl);
     t.ok(response.body.longUrl);
+    t.ok(response.body.createdAt);
     t.end();
   });
 
   t.test("Duplicate Entry Test", async (t) => {
-    const existingURL = await Url.findOne({
+    let existingURL = await Url.findOne({
       longUrl: "https://www.chess.com/home",
     });
 
     if (!existingURL) {
-      await Url.create({
+      existingURL = await Url.create({
         longUrl: "https://www.chess.com/home",
         shortUrl: "30DDE57CC40B7933",
       });
@@ -37,6 +38,7 @@ tap.test("Create URL Tests", async (t) => {
     t.equal(response.status, 200);
     t.same(response.body.longUrl, "https://www.chess.com/home");
     t.equal(response.body.shortUrl, "30DDE57CC40B7933");
+    t.same(response.body.createdAt, existingURL.createdAt.toISOString());
   });
 
   t.test("Adding New Entry when Other Entries Exist in DB", async (t) => {
