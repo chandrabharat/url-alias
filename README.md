@@ -8,7 +8,7 @@ The URL Shortener application is designed to provide a convenient way to generat
 
 ## Backend is hosted at [https://alias.cyclic.app/](https://alias.cyclic.app/)
 
-**Prefix with necessary API endpoint routes.**
+** Prefix Backend URL with necessary API endpoint routes. **
 
 ## Key Features
 
