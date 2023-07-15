@@ -83,7 +83,7 @@ Frontend React application code and static files
 Shared code and utilities used by both the backend and frontend
 
 ## Feedback and Support
-If you have any feedback, questions, or need support, please don't hesitate to reach out. You can contact us through email@example.com.
+If you have any feedback, questions, or need support, please don't hesitate to reach out. You can contact us through bharatchandra@berkeley.edu.
 
 We appreciate your interest in the URL Shortener application and welcome any contributions to enhance its functionality and usability.
 
