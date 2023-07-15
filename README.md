@@ -4,6 +4,9 @@
 
 The URL Shortener application is designed to provide a convenient way to generate short and customized aliases for long URLs. It offers a user-friendly interface for managing and accessing shortened URLs.
 
+## Web Application is hosted at ```https://url-alias-web.onrender.com/```
+## BackEnd is hosted at ``` https://alias.cyclic.app/ ``` Prefix with necessary API endpoint routes.
+
 ## Key Features
 
 - **URL Shortening:** Generate short and customized aliases for long URLs.
