@@ -36,6 +36,8 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 400px;
   margin: 0 auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 .form-input {
@@ -57,6 +59,11 @@ body {
   transition: background-color 0.3s ease;
 }
 
+.form-container label[for="typeHere"] {
+  font-size: large;
+  font-weight: bold;
+}
+
 .form-submit:hover {
   background-color: #0056b3;
   transform: translateY(-2px);
@@ -64,9 +71,13 @@ body {
 }
 
 .Table {
-  width: 100%;
-  border-collapse: collapse;
+  width: 95%; /* Adjust the width as per your preference */
+  margin: 0 auto;
   margin-top: 2em;
+  margin-bottom: 2em;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .Table.Title {
@@ -75,21 +86,21 @@ body {
 }
 
 .Table.Title th {
-  padding: 1em;
-  font-size: 1.5em;
+  padding: 0.5em;
+  font-size: 1.2em;
   text-align: center;
 }
 
 .Table.Columns th {
   background-color: #f2f2f2;
   color: #000;
-  padding: 0.5em 1em;
+  padding: 0.5em;
   font-size: 1em;
   text-align: left;
 }
 
 .Table.Entry td {
-  padding: 0.5em 1em;
+  padding: 0.5em;
   font-size: 1em;
   text-align: left;
   border-bottom: 1px solid #ccc;
@@ -101,4 +112,40 @@ body {
 
 .Table.Entry:last-child {
   border-bottom: none;
+}
+
+.Table.Title th,
+.Table.Columns th,
+.Table.Entry td {
+  border-bottom: 1px solid #ccc;
+}
+
+.Table.Title th:first-child,
+.Table.Columns th:first-child,
+.Table.Entry td:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.Table.Title th:last-child,
+.Table.Columns th:last-child,
+.Table.Entry td:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.Table.Entry td a {
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.Table.Entry td a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(64, 96, 226, 0.2);
+}
+
+#All-Alias.Table.Title {
+  background-color: rgb(125, 91, 188);
+  color: #fff;
 }

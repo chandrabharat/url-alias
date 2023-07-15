@@ -5,7 +5,7 @@ export const NewUrl = ({ longUrl, shortUrl, dateCreated }) => {
     <table className="Table">
       <thead>
         <tr className="Table Title">
-          <th colspan="3">New URL Alias</th>
+          <th colSpan="3">New URL Alias</th>
         </tr>
         <tr className="Table Columns">
           <th>Date Created</th>
