@@ -62,7 +62,7 @@ Specify the necessary environment variables (e.g., database connection details, 
 6. Open your web browser and access the application at ```http://localhost:3000```
 
 ## API Endpoints
-The URL Shortener application provides the following API endpoints:
+The URL Shortener application provides the following API endpoints hosted on the BackEnd Server:
 
 ### POST /urls/createUrl: 
 Creates a shortened URL by accepting a long URL and an optional custom alias.
