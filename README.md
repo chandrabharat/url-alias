@@ -58,19 +58,25 @@ Specify the necessary environment variables (e.g., database connection details, 
 ## API Endpoints
 The URL Shortener application provides the following API endpoints:
 
-### POST /urls/createUrl: Creates a shortened URL by accepting a long URL and an optional custom alias.
-### GET /urls: Retrieves a list of all created aliases with their associated long URLs.
-### GET /urls/:alias: Redirects to the original long URL associated with the provided alias.
+### POST /urls/createUrl: 
+Creates a shortened URL by accepting a long URL and an optional custom alias.
+### GET /urls: 
+Retrieves a list of all created aliases with their associated long URLs.
+### GET /urls/:alias: 
+Redirects to the original long URL associated with the provided alias.
 Refer to the API documentation or codebase for more detailed information about the API endpoints and their usage.
 
 ## Folder Structure
 The folder structure of the URL Shortener application is as follows:
 
-### backend/: Backend server code and configuration files
-### frontend/: Frontend React application code and static files
-### shared/: Shared code and utilities used by both the backend and frontend
+### backend/: 
+Backend server code and configuration files
+### frontend/: 
+Frontend React application code and static files
+### shared/: 
+Shared code and utilities used by both the backend and frontend
 
-##Feedback and Support
+## Feedback and Support
 If you have any feedback, questions, or need support, please don't hesitate to reach out. You can contact us through email@example.com.
 
 We appreciate your interest in the URL Shortener application and welcome any contributions to enhance its functionality and usability.
